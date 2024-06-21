@@ -27,6 +27,9 @@ closeDialog.addEventListener('click', ()=> {
     dialog.close();
 });
 
+for (let i = 0; i< userLibrary.length(); i++) {
+    /*append items from userlibrary to library display*/
+}
 
 /*
 
