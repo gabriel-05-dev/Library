@@ -16,11 +16,20 @@ body {
 }
 
 .pageContainer {
+    position: relative;
     height: 100vh;
     width: 100vw;
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr 3fr 1fr;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-image: url(background-paul-earle.jpg);
+    filter: blur(5px);
 }
 
 .sidebar {
@@ -35,7 +44,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     gap: 25px;
     margin: 25px;
     text-align: center;
@@ -69,7 +78,7 @@ body {
 
 dialog {
     margin: auto;
-    width: 20vw;
+    width: 25vw;
     height: 50vh;
 }
 
@@ -91,7 +100,16 @@ form > p {
     margin-bottom: 20px;
 }
 
-#closeDialog {
-    border-radius: 4px;
+form > button {
+    height: 5vh;
+    width: 10vw;
     margin-top: 20px;
+}
+#closeDialog {
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1.5vw; 
+    width: 1.5vw;
 }

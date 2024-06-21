@@ -8,10 +8,14 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <div class="bg">
+        <img src="background-paul-earle.jpg" alt="Image of sky">
+    </div>
+
     <div class="pageContainer">
         <div class="sidebar">
             <div class="bookActions">
-                <h1>Your Library</h1>
+                <h1>The Library</h1>
 
                 <button id="addBook">Add Book</button>
                 <button>Display Books</button>
@@ -29,8 +33,11 @@
                         <input type="text"id="author"></input>
                         <label for="pages">Pages : </label>
                         <input type="text"id="pages"></input>
+                        
+                        <button type="submit">Submit</button>
                     </form>
-                    <button id="closeDialog">close</button>
+                    <button id="closeDialog">x</button>
+
                 </div>
             </dialog>
 
