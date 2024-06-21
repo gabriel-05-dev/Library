@@ -25,11 +25,12 @@ body {
 }
 
 .bg {
-    width: 100%;
-    height: 100%;
+    width: 200%;
+    height: 200%;
     position: fixed;
     background-image: url(background-paul-earle.jpg);
     filter: blur(5px);
+    background-repeat: no-repeat;
 }
 
 .sidebar {
@@ -51,7 +52,7 @@ body {
 }
 
 .bookActions > h1 {
-    font-size: 2.5em;
+    font-size: 2.5vw;
 }
 
 .sidebar .bookActions > button{
@@ -84,8 +85,11 @@ dialog {
 
 form {
     display: flex;
-    justify-content: flex-start;
-    align-content: center;
+    flex-direction: column;
+}
+
+.formContents {
+    display: flex;
     flex-direction: column;
     gap: 5px;
 }
@@ -105,8 +109,8 @@ form > button {
     width: 10vw;
     margin-top: 20px;
 }
+
 #closeDialog {
-    margin-top: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
