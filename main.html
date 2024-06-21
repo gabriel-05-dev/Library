@@ -12,20 +12,32 @@
         <div class="sidebar">
             <div class="bookActions">
                 <h1>Your Library</h1>
-                <button>Add Book</button>
+
+                <button id="addBook">Add Book</button>
                 <button>Display Books</button>
                 <button>Clear Books</button>
             </div>
-         </div>
+        </div>
 
-         <div class="library">
+            <dialog id="dialog">
+                <div class="formElements">
+                    <form method="dialog">
+                        <p> Enter Book Details Below</p>
+                        <label for="bookName">Book Name : </label>
+                        <input type="text"id="bookName"></input>
+                        <label for="author">Author : </label>
+                        <input type="text"id="author"></input>
+                        <label for="pages">Pages : </label>
+                        <input type="text"id="pages"></input>
+                    </form>
+                    <button id="closeDialog">close</button>
+                </div>
+            </dialog>
+
+
+        <div class="library">
             <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-         </div>
+        </div>
 
 
 
