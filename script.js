@@ -1,46 +1,47 @@
-const userLibrary = [];
-const libraryElement = document.querySelector('.library');
-
-const addBooksBtn = document.querySelector('#addBook');
+const user_library = [];
+const library_element = document.querySelector('.library');
+const add_books_btn = document.querySelector('#addBook');
 const dialog = document.querySelector('#dialog');
-const closeDialog = document.querySelector('#closeDialog');
-
+const close_dialog = document.querySelector('#closeDialog');
 const form = document.getElementById('form');
 
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(form);
-    const obj = Object.fromEntries(formData);
+    const bookObj = Object.fromEntries(formData);
     /* move obj data into variables. */
-    let book = obj.bookName;
-    let author = obj.author;
-    let pages = obj.pages;
-    createCard(book, author, pages);
+    user_library.push(bookObj);
+    create_card();
     form.reset();
 });
 
-function createCard(book, author, pages) {
-    const NewCard = document.createElement('div');
-    const BookTitle = document.createElement('h3');
-    const BookAuthor = document.createElement('p');
-    const BookPages = document.createElement('p');
-    BookTitle.innerText = book;
-    BookAuthor.innerText = 'Author : ' + author;
-    BookPages.innerText = 'Pages : ' + pages;
-    
+function create_card() {
 
-    NewCard.classList.add("card");
-    NewCard.appendChild(BookTitle);
-    NewCard.appendChild(BookAuthor);
-    NewCard.appendChild(BookPages);
-    libraryElement.appendChild(NewCard);
-};
+    library_element.innerHTML = '';
 
-addBooksBtn.addEventListener('click', ()=> {
+    for (let i = 0; i<userLibrary.length; i++) {
+
+        //* for each element in the array, create a card & push it onto the library*/
+        const new_card = document.createElement('div');
+        const book_title = document.createElement('h3');
+        const book_author = document.createElement('p');
+        const BookPages = document.createElement('p');
+        book_title.innerText = userLibrary[i].bookName;
+        book_author.innerText = userLibrary[i].author;
+        BookPages.innerText = userLibrary[i].pages;
+        new_card.classList.add("card");
+        new_card.appendChild(book_title);
+        new_card.appendChild(book_author);
+        new_card.appendChild(BookPages);
+        library_element.appendChild(new_card);
+        };
+    };
+
+add_books_btn.addEventListener('click', ()=> {
     dialog.showModal();
 });
 
-closeDialog.addEventListener('click', ()=> {
+close_dialog.addEventListener('click', ()=> {
     dialog.close();
 });
