@@ -87,15 +87,17 @@ body {
     margin-bottom: 10px;
 }
 
-.card .readStatus > p {
-    font-size: 1em;
+.card > button {
+    font-size: 0.8em;
+    height: 1.5vw;
+    width: 6vw;
 }
 
-.readStatus {
-    display: flex;
-    gap: 5px;
+.card > div > button {
+    font-size: 0.8em;
+    height: 1.5vw;
+    width: 6vw;
 }
-
 
 
 dialog {
