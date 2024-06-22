@@ -5,19 +5,28 @@ const addBooksBtn = document.querySelector('#addBook');
 const dialog = document.querySelector('#dialog');
 const closeDialog = document.querySelector('#closeDialog');
 
+const form = document.getElementById('form');
 
-function newBook(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const obj = Object.fromEntries(formData);
+
+    let book = obj.bookName;
+    let author = obj.author;
+    let pages = obj.pages;
+    console.log(book);
+    console.log(author);
+    console.log(pages);
+    return book, author, pages;
+});
+
+function createCard(book, author, pages) {
+    const NewCard = document.createElement('div');
+    NewCard.classList.add("card");
+    libraryElement.appendChild(NewCard);
 };
-
-function appendBook(book) {
-    userLibrary.push(book);
-};
-
-/* Open/close the dialog */
 
 addBooksBtn.addEventListener('click', ()=> {
     dialog.showModal();
@@ -26,17 +35,3 @@ addBooksBtn.addEventListener('click', ()=> {
 closeDialog.addEventListener('click', ()=> {
     dialog.close();
 });
-
-for (let i = 0; i< userLibrary.length(); i++) {
-    /*append items from userlibrary to library display*/
-}
-
-/*
-
-addBooksBtn.addEventListener('click', function() {
-    const NewCard = document.createElement('div');
-    NewCard.classList.add("card");
-    libraryElement.appendChild(NewCard);
-});
-
-*/
