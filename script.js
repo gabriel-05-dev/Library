@@ -1,10 +1,11 @@
-const user_library = [];
+let user_library = [];
 const library_element = document.querySelector('.library');
 const add_books_btn = document.querySelector('#addBook');
 const dialog = document.querySelector('#dialog');
 const close_dialog = document.querySelector('#closeDialog');
 const form = document.getElementById('form');
 const display_btn = document.querySelector('#displayLibrary');
+const clear_books_btn = document.querySelector('#clearBooks');
 let display_counter = 0;
 
 
@@ -28,6 +29,10 @@ close_dialog.addEventListener('click', ()=> {
 
 display_btn.addEventListener('click', function() {
     display_cards();
+});
+
+clear_books_btn.addEventListener('click', function() {
+    clear_books();  
 });
 
 function create_card() {
@@ -71,3 +76,9 @@ function display_cards() {
         library_element.style = '';
         display_counter++
     }};
+
+
+function clear_books() {
+    user_library = [];
+    library_element.innerHTML = '';
+};
