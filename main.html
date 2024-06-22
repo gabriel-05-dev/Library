@@ -18,7 +18,7 @@
                 <h1>The Library</h1>
 
                 <button id="addBook">Add Book</button>
-                <button>Display Books</button>
+                <button id="displayLibrary">Display Books</button>
                 <button>Clear Books</button>
             </div>
         </div>
@@ -27,17 +27,16 @@
                 <div class="formElements">
                     <form id="form" method="dialog">
                          <div class="formContents">
-                            <p> Enter Book Details Below</p>
+                            <p id="formTitle">Enter Book Details Below</p>
                             <label for="bookName">Book Name</label>
-                            <input type="text" name="bookName" id="bookName"></input>
+                            <input type="text" name="bookName" id="bookName" required></input>
                             <label for="author">Author</label>
-                            <input type="text" name="author" id="author"></input>
+                            <input type="text" name="author" id="author" required></input>
                             <label for="pages">Pages</label>
-                            <input type="text" name="pages" id="pages"></input>
+                            <input type="text" name="pages" id="pages" required></input>
                          </div>
                         <button type="submit">Submit</button>
                         <button type="button" id="closeDialog">x</button>
-
                     </form>
 
                 </div>
