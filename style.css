@@ -83,8 +83,12 @@ body {
     gap: 5px;
 }
 
+.card > p {
+    font-size: 0.8vw;
+}
+
 .card > h3 {
-    font-size: 1.2em;
+    font-size: 1vw;
     margin-bottom: 10px;
 }
 
@@ -106,11 +110,7 @@ body {
     gap: 10px;
     justify-content: flex-start;
     align-items: center;
-}
-
-.readBookDiv button p {
-    text-align: center;
-    font-size: 0.8em;
+    font-size: 0.7vw;
 }
 
 
@@ -145,7 +145,7 @@ form > input {
 }
 
 form > p {
-    font-size: 1em;
+    font-size: 0.9vw;
     font-weight: 600;
     margin-bottom: 20px;
 }
