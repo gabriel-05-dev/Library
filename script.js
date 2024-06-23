@@ -63,12 +63,14 @@ function update_read(i) {
     };
 };
 
+
 function create_cards() {
 
     library_element.innerHTML = '';
 
     for (let i = 0; i<user_library.length; i++) {
         /* for each element in the array, create a card & push it onto the library*/
+        
         user_library[i].id = i;
         const new_card = document.createElement('div');
         const book_title = document.createElement('h3');
@@ -76,21 +78,31 @@ function create_cards() {
         const book_pages = document.createElement('p');
         const remove_book = document.createElement('button');
         const read_book_div = document.createElement('div');
-        const read_book_status = document.createElement('div');
+        const read_book_status = document.createElement('p');
         const read_book_btn = document.createElement('button');
-
         //event listeners for the cards.
+        if (user_library[i].read == true) {
+            read_book_status.innerText = 'Read';
+        } else if (user_library[i].read == false) {
+            read_book_status.innerText = 'Unread';
+        };
 
         remove_book.addEventListener('click', function() {
             remove_from_library(i);
         });
         read_book_div.addEventListener('click', function() {
             update_read(i);
+            if (user_library[i].read == true) {
+                read_book_status.innerText = 'Read';
+                read_book_div.appendChild(read_book_status);
+            } else if (user_library[i].read == false) {
+                read_book_status.innerText = 'Unread';
+                read_book_div.appendChild(read_book_status);
+            };
         });
 
         remove_book.innerText = 'remove?';
         read_book_btn.innerText = 'read?';
-        read_book_div.appendChild(read_book_btn);
         book_title.innerText = user_library[i].bookName;
         book_author.innerText = 'Author: '+user_library[i].author;
         book_pages.innerText = 'Pages: '+user_library[i].pages;
@@ -99,6 +111,8 @@ function create_cards() {
         new_card.appendChild(book_author);
         new_card.appendChild(book_pages);
         new_card.appendChild(remove_book);
+        read_book_div.appendChild(read_book_btn);
+        read_book_div.appendChild(read_book_status);
         new_card.appendChild(read_book_div);
         library_element.appendChild(new_card);
         };
