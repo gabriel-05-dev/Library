@@ -7,46 +7,41 @@ const form = document.getElementById('form');
 const display_btn = document.querySelector('#displayLibrary');
 const clear_books_btn = document.querySelector('#clearBooks');
 let checkbox_btn = document.querySelector('#readCheck');
-let display_counter = 0;
 
 
 form.addEventListener('submit', (e) => {
-    e.preventDefault();
+    e.preventDefault(); //prevent default data being sent.
     const formData = new FormData(form);
-    const bookObj = Object.fromEntries(formData);
+    const bookObj = Object.fromEntries(formData);   //creates object from form data that is inputted.
 
-    //ensure book object has a read status.
+    //ensure book object HAS a read status (important).
     if (!bookObj.read) {
         bookObj.read = false;
     } else if (bookObj.read == 'on') {
         bookObj.read = true;
     };
 
-    user_library.push(bookObj);
+    user_library.push(bookObj); //push book object to user library
     console.log(bookObj);
     create_cards();
-    form.reset();
-});
+    form.reset();}
+);
 
 add_books_btn.addEventListener('click', ()=> {
-    dialog.showModal();
-});
+    dialog.showModal();}); //shows the book entry form.
 
 close_dialog.addEventListener('click', ()=> {
-    dialog.close();
-});
+    dialog.close();}); //hide the book entry form
 
 display_btn.addEventListener('click', function() {
-    display_cards();
-});
+    display_cards();}); //displays the books
 
 clear_books_btn.addEventListener('click', function() {
-    clear_books();  
-});
+    clear_books();}); //removes all books from the library.
 
-function remove_from_library(id) {
-    console.log(id);
-    if (id == 0) {
+function remove_from_library(id) { //allows the user to remove certain books by their ID.
+    console.log(id);            //might have to re-write this function as currently -
+    if (id == 0) {              // - re-generates the libary each time a book is removed
         user_library.shift(id);
         create_cards();
     } else if (id > 0) {
@@ -55,7 +50,7 @@ function remove_from_library(id) {
     };
 };
 
-function update_read(i) {
+function update_read(i) {   //used to update the read parameter on the book object.
     if (user_library[i].read === false) {
         return user_library[i].read = true;
     } else if (user_library[i].read === true) {
@@ -80,28 +75,29 @@ function create_cards() {
         const read_book_div = document.createElement('div');
         const read_book_status = document.createElement('p');
         const read_book_btn = document.createElement('button');
-        //event listeners for the cards.
-        if (user_library[i].read == true) {
-            read_book_status.innerText = 'Read';
-        } else if (user_library[i].read == false) {
-            read_book_status.innerText = 'Unread';
-        };
+        read_book_div.classList.add('readBookDiv');
 
+        if (user_library[i].read == true) {
+            read_book_status.innerText = 'Yes';
+        } else if (user_library[i].read == false) {
+            read_book_status.innerText = 'No';
+        };
+        //event listeners for the cards
         remove_book.addEventListener('click', function() {
             remove_from_library(i);
-        });
-        read_book_div.addEventListener('click', function() {
+        }); 
+        read_book_div.addEventListener('click', function() { //modify DOM based on card read status.
             update_read(i);
             if (user_library[i].read == true) {
-                read_book_status.innerText = 'Read';
+                read_book_status.innerText = 'Yes';
                 read_book_div.appendChild(read_book_status);
             } else if (user_library[i].read == false) {
-                read_book_status.innerText = 'Unread';
+                read_book_status.innerText = 'No';
                 read_book_div.appendChild(read_book_status);
             };
         });
 
-        remove_book.innerText = 'remove?';
+        remove_book.innerText = 'remove';
         read_book_btn.innerText = 'read?';
         book_title.innerText = user_library[i].bookName;
         book_author.innerText = 'Author: '+user_library[i].author;
@@ -116,22 +112,22 @@ function create_cards() {
         new_card.appendChild(read_book_div);
         library_element.appendChild(new_card);
         };
+};
+
+function display_cards() { 
+    if (display_btn.innerText == 'Hide Books') {
+        display_btn.innerText = 'Show Books';
+        library_element.style = 'display:none;';
+    } else if (display_btn.innerText == 'Show Books') {
+        library_element.style = '';
+        display_btn.innerText = 'Hide Books'
     };
 
-function display_cards() {
-    if (display_counter % 2 != 0) {
-        library_element.style = 'display:none;';
-        display_counter++
-    } else {
-        library_element.style = '';
-        display_counter++
-    }};
-
-function clear_books() {
+function clear_books() {   //clears the whole library and resets the library array.
     if (user_library.length != 0 && library_element.innerHTML != '') {
     user_library = [];
     library_element.innerHTML = '';
     } else {
         console.log('Library Empty.');
     };
-};
+}};

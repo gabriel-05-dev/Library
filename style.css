@@ -25,8 +25,7 @@ body {
     height: 100%;
     position: fixed;
     background-image: url(background-paul-earle.jpg);
-    filter: blur(5px);
-    filter: brightness(75%);
+    filter: brightness(65%);
 }
 
 .sidebar {
@@ -58,6 +57,8 @@ body {
     width: 10vw;
     background-color: #f3f3f3;
     border-style: none;
+    border-radius: 25px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .library {
@@ -70,12 +71,12 @@ body {
 }
 
 .card {
+    opacity: 0.9;
     height: 250px;
     width: 225px;
     background-color: #f3f3f3;
     border-radius: 18px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;    display: flex;
     flex-direction: column;
     padding: 30px;
     padding-right: 5px;
@@ -88,22 +89,34 @@ body {
 }
 
 .card > button {
-    font-size: 0.8em;
+    font-size: 0.8vw;
     height: 1.5vw;
-    width: 6vw;
+    width: 4vw;
 }
 
 .card > div > button {
-    font-size: 0.8em;
+    font-size: 0.8vw;
     height: 1.5vw;
-    width: 6vw;
+    width: 4vw;
 }
 
+.readBookDiv {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.readBookDiv button p {
+    text-align: center;
+    font-size: 0.8em;
+}
 
 
 dialog {
     margin: auto;
-    width: 25vw;
+    width: 18vw;
     height: 50vh;
 }
 
@@ -116,10 +129,13 @@ form {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    align-items: flex-start;
 }
 
 #formTitle {
     margin-bottom: 15px;
+    font-weight: 600;
+    text-decoration: underline;
 }
 
 form > input {
@@ -132,6 +148,10 @@ form > p {
     font-size: 1em;
     font-weight: 600;
     margin-bottom: 20px;
+}
+
+.formContents > label {
+    text-decoration:underline;
 }
 
 form > button {
