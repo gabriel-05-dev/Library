@@ -121,7 +121,7 @@ function display_cards() {
     } else if (display_btn.innerText == 'Show Books') {
         library_element.style = '';
         display_btn.innerText = 'Hide Books'
-    };
+    }};
 
 function clear_books() {   //clears the whole library and resets the library array.
     if (user_library.length != 0 && library_element.innerHTML != '') {
