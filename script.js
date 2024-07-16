@@ -130,4 +130,4 @@ function clear_books() {   //clears the whole library and resets the library arr
     } else {
         console.log('Library Empty.');
     };
-}};
+};
